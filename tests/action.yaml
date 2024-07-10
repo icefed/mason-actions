@@ -43,6 +43,11 @@ runs:
       with:
         enable-stack: true
 
+    # ghcup is already available in the base images of non-macOS platforms. Also see https://github.com/haskell-actions/setup/pull/82
+    - if: ${{ steps.prepare.outputs.setup_haskell == 'true' && runner.os == 'macOS' }}
+      shell: bash
+      run: curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
+
     - if: ${{ steps.prepare.outputs.setup_java == 'true' }}
       uses: actions/setup-java@v3
       with:

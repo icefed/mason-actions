@@ -85,7 +85,7 @@ jobs:
     runs-on: ${{ matrix.runs-on }}
     steps:
       - uses: actions/checkout@v4
-      - uses: mason-org/actions/tests@v1
+      - uses: icefed/mason-actions/tests@v1
         with:
           packages: ${{ needs.package-targets.outputs.packages }}
           target: ${{ matrix.target }}

@@ -43,6 +43,9 @@ runs:
           echo "packages=${{ steps.changed-packages.outputs.all_changed_files }}" >> "$GITHUB_OUTPUT"
         fi
 
+    - name: Install jv
+      uses: icefed/mason-actions/setup-jv@v1
+
     - name: Validate schema conformance
       if: ${{ steps.package-targets.outputs.packages != '' }}
       shell: bash
@@ -51,7 +54,7 @@ runs:
         PACKAGES: ${{ steps.package-targets.outputs.packages }}
 
     - name: Install yq
-      uses: mason-org/actions/setup-yq@v1
+      uses: icefed/mason-actions/setup-yq@v1
 
     - name: Validate languages
       if: ${{ steps.package-targets.outputs.packages != '' }}

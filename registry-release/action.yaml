@@ -11,10 +11,10 @@ runs:
         fetch-depth: 2
 
     - name: Install yq
-      uses: mason-org/actions/setup-yq@v1
+      uses: icefed/mason-actions/setup-yq@v1
 
     - id: adjnoun
-      uses: mason-org/actions/adj-noun-generator@v1
+      uses: icefed/mason-actions/adj-noun-generator@v1
 
     - id: tag
       name: Get/create tag
